@@ -1,0 +1,29 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /sbm/
+
+spring:
+  datasource:
+    username: root
+    password: xingchen
+    url: jdbc:mysql://localhost:3306/xc_test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+welcome:
+  message: Hello!
+
+# mybatis配置
+mybatis:
+  type-aliases-package: com.manongchen.sbm.*.entity.*
+  mapper-locations: classpath*:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+logging:
+  level:
+    com:
+      example:
+        mapper: debug
